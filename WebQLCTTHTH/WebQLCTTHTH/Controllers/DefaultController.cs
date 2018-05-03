@@ -6,14 +6,15 @@ using System.Web.Mvc;
 
 namespace WebQLCTTHTH.Controllers
 {
-    public class BDKController : Controller
+    public class DefaultController : Controller
     {
-        // GET: BDK
+        // GET: Default
         public ActionResult Index()
         {
             return View();
         }
 
+        // GET: Default/Details/5
         public ActionResult Details(int id)
         {
             return View();

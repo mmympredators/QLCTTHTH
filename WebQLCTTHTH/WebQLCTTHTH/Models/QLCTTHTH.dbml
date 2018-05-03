@@ -1,22 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLCTTHTH" Class="QLCTTHTHDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-JT7Q9VO\SQLEXPRESS;Initial Catalog=QLCTTHTH;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLCTTHTHConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.BaiHat" Member="BaiHats">
-    <Type Name="BaiHat">
-      <Column Name="MaBH" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenBH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Nhac" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Loi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Ma_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="BaiHat_CTVT" Member="CTVTs" ThisKey="MaBH" OtherKey="BaiHatBB" Type="CTVT" />
-      <Association Name="BaiHat_CTVT1" Member="CTVTs1" ThisKey="MaBH" OtherKey="BaiHatTC" Type="CTVT" />
-      <Association Name="ChuDe_BaiHat" Member="ChuDe" ThisKey="Ma_CD" OtherKey="MaCD" Type="ChuDe" IsForeignKey="true" />
+  <Table Name="dbo.VongThi" Member="VongThis">
+    <Type Name="VongThi">
+      <Column Name="MaVT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenVT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="VongThi_CTVT_T" Member="CTVT_Ts" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT_T" />
+      <Association Name="VongThi_CTVT_DT" Member="CTVT_DTs" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT_DT" />
     </Type>
   </Table>
-  <Table Name="dbo.ChuDe" Member="ChuDes">
-    <Type Name="ChuDe">
-      <Column Name="MaCD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenCD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="ChuDe_BaiHat" Member="BaiHats" ThisKey="MaCD" OtherKey="Ma_CD" Type="BaiHat" />
+  <Table Name="dbo.ThiSinh" Member="ThiSinhs">
+    <Type Name="ThiSinh">
+      <Column Name="MaTS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HoTenTS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NamSinhTS" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DiaChiTS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="QueQuanTS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HinhTS" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NopPhi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ThiSinh_CTVT_T" Member="CTVT_Ts" ThisKey="MaTS" OtherKey="SBD" Type="CTVT_T" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhaTaiTro" Member="NhaTaiTros">
+    <Type Name="NhaTaiTro">
+      <Column Name="MaNTT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DiaChiNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EmailNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="NhaTaiTro_CTTTDT" Member="CTTTDTs" ThisKey="MaNTT" OtherKey="Ma_NTT" Type="CTTTDT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GiaiThuong" Member="GiaiThuongs">
+    <Type Name="GiaiThuong">
+      <Column Name="MaGT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenGiaiThuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoTienThuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="GiaiThuong_CTVT_DT" Member="CTVT_DTs" ThisKey="MaGT" OtherKey="Ma_GT" Type="CTVT_DT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DotThi" Member="DotThis">
+    <Type Name="DotThi">
+      <Column Name="LanThi" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NamThi" Type="System.String" DbType="NChar(4)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="DotThi_CTVT_DT" Member="CTVT_DTs" ThisKey="LanThi" OtherKey="LT" Type="CTVT_DT" />
+      <Association Name="DotThi_CTTTDT" Member="CTTTDTs" ThisKey="LanThi" OtherKey="LT" Type="CTTTDT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CTVT_TS" Member="CTVT_Ts">
+    <Type Name="CTVT_T">
+      <Column Name="Ma_VT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SBD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BaiHatBB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiemBHBB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BaiHatTC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiemBHTC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ThiSinh_CTVT_T" Member="ThiSinh" ThisKey="SBD" OtherKey="MaTS" Type="ThiSinh" IsForeignKey="true" />
+      <Association Name="VongThi_CTVT_T" Member="VongThi" ThisKey="Ma_VT" OtherKey="MaVT" Type="VongThi" IsForeignKey="true" />
+      <Association Name="BaiHat_CTVT_T" Member="BaiHat" ThisKey="BaiHatBB" OtherKey="MaBH" Type="BaiHat" IsForeignKey="true" />
+      <Association Name="BaiHat_CTVT_T1" Member="BaiHat1" ThisKey="BaiHatTC" OtherKey="MaBH" Type="BaiHat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CTVT_DT" Member="CTVT_DTs">
+    <Type Name="CTVT_DT">
+      <Column Name="Ma_VT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DiaDiemThi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ThoiGianThi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaDiemTap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ThoiGianTap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ma_GT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DotThi_CTVT_DT" Member="DotThi" ThisKey="LT" OtherKey="LanThi" Type="DotThi" IsForeignKey="true" />
+      <Association Name="GiaiThuong_CTVT_DT" Member="GiaiThuong" ThisKey="Ma_GT" OtherKey="MaGT" Type="GiaiThuong" IsForeignKey="true" />
+      <Association Name="VongThi_CTVT_DT" Member="VongThi" ThisKey="Ma_VT" OtherKey="MaVT" Type="VongThi" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CTTTDT" Member="CTTTDTs">
@@ -30,64 +86,23 @@
       <Association Name="NhaTaiTro_CTTTDT" Member="NhaTaiTro" ThisKey="Ma_NTT" OtherKey="MaNTT" Type="NhaTaiTro" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.CTVT" Member="CTVTs">
-    <Type Name="CTVT">
-      <Column Name="Ma_VT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SBD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BaiHatBB" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DiemBHBB" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BaiHatTC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DiemBHTC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="BaiHat_CTVT" Member="BaiHat" ThisKey="BaiHatBB" OtherKey="MaBH" Type="BaiHat" IsForeignKey="true" />
-      <Association Name="BaiHat_CTVT1" Member="BaiHat1" ThisKey="BaiHatTC" OtherKey="MaBH" Type="BaiHat" IsForeignKey="true" />
-      <Association Name="ThiSinh_CTVT" Member="ThiSinh" ThisKey="SBD" OtherKey="MaTS" Type="ThiSinh" IsForeignKey="true" />
-      <Association Name="VongThi_CTVT" Member="VongThi" ThisKey="Ma_VT" OtherKey="MaVT" Type="VongThi" IsForeignKey="true" />
+  <Table Name="dbo.ChuDe" Member="ChuDes">
+    <Type Name="ChuDe">
+      <Column Name="MaCD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenCD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ChuDe_BaiHat" Member="BaiHats" ThisKey="MaCD" OtherKey="Ma_CD" Type="BaiHat" />
     </Type>
   </Table>
-  <Table Name="dbo.DotThi" Member="DotThis">
-    <Type Name="DotThi">
-      <Column Name="LanThi" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NamThi" Type="System.String" DbType="NChar(4)" CanBeNull="true" />
-      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="DotThi_CTTTDT" Member="CTTTDTs" ThisKey="LanThi" OtherKey="LT" Type="CTTTDT" />
-      <Association Name="DotThi_VongThi" Member="VongThis" ThisKey="LanThi" OtherKey="LT" Type="VongThi" />
-    </Type>
-  </Table>
-  <Table Name="dbo.NhaTaiTro" Member="NhaTaiTros">
-    <Type Name="NhaTaiTro">
-      <Column Name="MaNTT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DiaChiNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="EmailNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="NhaTaiTro_CTTTDT" Member="CTTTDTs" ThisKey="MaNTT" OtherKey="Ma_NTT" Type="CTTTDT" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ThiSinh" Member="ThiSinhs">
-    <Type Name="ThiSinh">
-      <Column Name="MaTS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="HoTenTS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="NamSinhTS" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="GT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="DiaChiTS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="QueQuanTS" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="HinhTS" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NopPhi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="ThiSinh_CTVT" Member="CTVTs" ThisKey="MaTS" OtherKey="SBD" Type="CTVT" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VongThi" Member="VongThis">
-    <Type Name="VongThi">
-      <Column Name="MaVT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenVT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DiaDiemThi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ThoiGianThi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DiaDiemTap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ThoiGianTap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="TenGiaiThuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SoTienThuong" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="LT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="VongThi_CTVT" Member="CTVTs" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT" />
-      <Association Name="DotThi_VongThi" Member="DotThi" ThisKey="LT" OtherKey="LanThi" Type="DotThi" IsForeignKey="true" />
+  <Table Name="dbo.BaiHat" Member="BaiHats">
+    <Type Name="BaiHat">
+      <Column Name="MaBH" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenBH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nhac" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Loi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ma_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BaiHat_CTVT_T" Member="CTVT_Ts" ThisKey="MaBH" OtherKey="BaiHatBB" Type="CTVT_T" />
+      <Association Name="BaiHat_CTVT_T1" Member="CTVT_Ts1" ThisKey="MaBH" OtherKey="BaiHatTC" Type="CTVT_T" />
+      <Association Name="ChuDe_BaiHat" Member="ChuDe" ThisKey="Ma_CD" OtherKey="MaCD" Type="ChuDe" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
