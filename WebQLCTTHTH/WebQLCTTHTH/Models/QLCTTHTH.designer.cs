@@ -1120,6 +1120,8 @@ namespace WebQLCTTHTH.Models
 		
 		private EntitySet<CTTTDT> _CTTTDTs;
 		
+		private EntitySet<VongThi> _VongThis;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1135,6 +1137,7 @@ namespace WebQLCTTHTH.Models
 		public DotThi()
 		{
 			this._CTTTDTs = new EntitySet<CTTTDT>(new Action<CTTTDT>(this.attach_CTTTDTs), new Action<CTTTDT>(this.detach_CTTTDTs));
+			this._VongThis = new EntitySet<VongThi>(new Action<VongThi>(this.attach_VongThis), new Action<VongThi>(this.detach_VongThis));
 			OnCreated();
 		}
 		
@@ -1211,6 +1214,19 @@ namespace WebQLCTTHTH.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DotThi_VongThi", Storage="_VongThis", ThisKey="LanThi", OtherKey="LT")]
+		public EntitySet<VongThi> VongThis
+		{
+			get
+			{
+				return this._VongThis;
+			}
+			set
+			{
+				this._VongThis.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1238,6 +1254,18 @@ namespace WebQLCTTHTH.Models
 		}
 		
 		private void detach_CTTTDTs(CTTTDT entity)
+		{
+			this.SendPropertyChanging();
+			entity.DotThi = null;
+		}
+		
+		private void attach_VongThis(VongThi entity)
+		{
+			this.SendPropertyChanging();
+			entity.DotThi = this;
+		}
+		
+		private void detach_VongThis(VongThi entity)
 		{
 			this.SendPropertyChanging();
 			entity.DotThi = null;
@@ -1690,6 +1718,8 @@ namespace WebQLCTTHTH.Models
 		
 		private EntitySet<CTVT> _CTVTs;
 		
+		private EntityRef<DotThi> _DotThi;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1717,6 +1747,7 @@ namespace WebQLCTTHTH.Models
 		public VongThi()
 		{
 			this._CTVTs = new EntitySet<CTVT>(new Action<CTVT>(this.attach_CTVTs), new Action<CTVT>(this.detach_CTVTs));
+			this._DotThi = default(EntityRef<DotThi>);
 			OnCreated();
 		}
 		
@@ -1891,6 +1922,10 @@ namespace WebQLCTTHTH.Models
 			{
 				if ((this._LT != value))
 				{
+					if (this._DotThi.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnLTChanging(value);
 					this.SendPropertyChanging();
 					this._LT = value;
@@ -1910,6 +1945,40 @@ namespace WebQLCTTHTH.Models
 			set
 			{
 				this._CTVTs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DotThi_VongThi", Storage="_DotThi", ThisKey="LT", OtherKey="LanThi", IsForeignKey=true)]
+		public DotThi DotThi
+		{
+			get
+			{
+				return this._DotThi.Entity;
+			}
+			set
+			{
+				DotThi previousValue = this._DotThi.Entity;
+				if (((previousValue != value) 
+							|| (this._DotThi.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DotThi.Entity = null;
+						previousValue.VongThis.Remove(this);
+					}
+					this._DotThi.Entity = value;
+					if ((value != null))
+					{
+						value.VongThis.Add(this);
+						this._LT = value.LanThi;
+					}
+					else
+					{
+						this._LT = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("DotThi");
+				}
 			}
 		}
 		

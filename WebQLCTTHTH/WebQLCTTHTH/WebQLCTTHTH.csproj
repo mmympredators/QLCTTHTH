@@ -143,7 +143,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BDKController.cs" />
+    <Compile Include="Controllers\BGKController.cs" />
+    <Compile Include="Controllers\BVDController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QLCTTHTHController.cs" />
+    <Compile Include="Controllers\TSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +204,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutQLCTTHTH.cshtml" />
+    <Content Include="Views\QLCTTHTH\Index.cshtml" />
+    <Content Include="Views\TS\Index.cshtml" />
+    <Content Include="Views\BDK\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutBDK.cshtml" />
+    <Content Include="Views\Shared\_LayoutTS.cshtml" />
+    <Content Include="Views\Shared\_LayoutBGK.cshtml" />
+    <Content Include="Views\Shared\_LayoutBVD.cshtml" />
+    <Content Include="Views\BGK\Index.cshtml" />
+    <Content Include="Views\BVD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

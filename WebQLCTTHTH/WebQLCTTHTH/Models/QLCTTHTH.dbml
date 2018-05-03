@@ -50,6 +50,7 @@
       <Column Name="NamThi" Type="System.String" DbType="NChar(4)" CanBeNull="true" />
       <Column Name="NoiDung" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="DotThi_CTTTDT" Member="CTTTDTs" ThisKey="LanThi" OtherKey="LT" Type="CTTTDT" />
+      <Association Name="DotThi_VongThi" Member="VongThis" ThisKey="LanThi" OtherKey="LT" Type="VongThi" />
     </Type>
   </Table>
   <Table Name="dbo.NhaTaiTro" Member="NhaTaiTros">
@@ -86,6 +87,7 @@
       <Column Name="SoTienThuong" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="LT" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="VongThi_CTVT" Member="CTVTs" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT" />
+      <Association Name="DotThi_VongThi" Member="DotThi" ThisKey="LT" OtherKey="LanThi" Type="DotThi" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
