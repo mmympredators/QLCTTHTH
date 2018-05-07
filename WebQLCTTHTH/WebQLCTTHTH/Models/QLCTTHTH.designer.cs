@@ -887,8 +887,11 @@ namespace WebQLCTTHTH.Models
 		
 		private EntitySet<CTVT_DT> _CTVT_DTs;
 		
+<<<<<<< HEAD
 		private EntitySet<CTTTDT> _CTTTDTs;
 		
+=======
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -981,6 +984,7 @@ namespace WebQLCTTHTH.Models
 			}
 		}
 		
+<<<<<<< HEAD
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DotThi_CTTTDT", Storage="_CTTTDTs", ThisKey="LanThi", OtherKey="LT")]
 		public EntitySet<CTTTDT> CTTTDTs
 		{
@@ -994,6 +998,8 @@ namespace WebQLCTTHTH.Models
 			}
 		}
 		
+=======
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1025,6 +1031,7 @@ namespace WebQLCTTHTH.Models
 			this.SendPropertyChanging();
 			entity.DotThi = null;
 		}
+<<<<<<< HEAD
 		
 		private void attach_CTTTDTs(CTTTDT entity)
 		{
@@ -1037,6 +1044,8 @@ namespace WebQLCTTHTH.Models
 			this.SendPropertyChanging();
 			entity.DotThi = null;
 		}
+=======
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CTVT_TS")]
@@ -2088,8 +2097,11 @@ namespace WebQLCTTHTH.Models
 		
 		private EntitySet<CTVT_T> _CTVT_Ts1;
 		
+<<<<<<< HEAD
 		private EntityRef<ChuDe> _ChuDe;
 		
+=======
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2108,9 +2120,13 @@ namespace WebQLCTTHTH.Models
 		
 		public BaiHat()
 		{
+<<<<<<< HEAD
 			this._CTVT_Ts = new EntitySet<CTVT_T>(new Action<CTVT_T>(this.attach_CTVT_Ts), new Action<CTVT_T>(this.detach_CTVT_Ts));
 			this._CTVT_Ts1 = new EntitySet<CTVT_T>(new Action<CTVT_T>(this.attach_CTVT_Ts1), new Action<CTVT_T>(this.detach_CTVT_Ts1));
 			this._ChuDe = default(EntityRef<ChuDe>);
+=======
+			this._CTVTs = new EntitySet<CTVT>(new Action<CTVT>(this.attach_CTVTs), new Action<CTVT>(this.detach_CTVTs));
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
 			OnCreated();
 		}
 		
@@ -2227,7 +2243,18 @@ namespace WebQLCTTHTH.Models
 			}
 			set
 			{
+<<<<<<< HEAD
 				this._CTVT_Ts.Assign(value);
+=======
+				if ((this._LT != value))
+				{
+					this.OnLTChanging(value);
+					this.SendPropertyChanging();
+					this._LT = value;
+					this.SendPropertyChanged("LT");
+					this.OnLTChanged();
+				}
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
 			}
 		}
 		
@@ -2244,6 +2271,7 @@ namespace WebQLCTTHTH.Models
 			}
 		}
 		
+<<<<<<< HEAD
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ChuDe_BaiHat", Storage="_ChuDe", ThisKey="Ma_CD", OtherKey="MaCD", IsForeignKey=true)]
 		public ChuDe ChuDe
 		{
@@ -2278,6 +2306,8 @@ namespace WebQLCTTHTH.Models
 			}
 		}
 		
+=======
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;

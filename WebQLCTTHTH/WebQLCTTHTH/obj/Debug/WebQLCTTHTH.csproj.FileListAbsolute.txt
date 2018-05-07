@@ -84,8 +84,12 @@ C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\Microsoft.A
 C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\Microsoft.AI.Web.xml
-C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\obj\Debug\WebQLCTTHTH.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\obj\Debug\WebQLCTTHTH.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\obj\Debug\WebQLCTTHTH.csproj.CopyComplete
 C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\obj\Debug\WebQLCTTHTH.dll
 C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\obj\Debug\WebQLCTTHTH.pdb
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\EntityFramework.xml
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\EntityFramework.SqlServer.dll
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\EntityFramework.SqlServer.xml
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\obj\Debug\WebQLCTTHTH.csprojResolveAssemblyReference.cache

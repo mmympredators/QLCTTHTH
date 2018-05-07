@@ -45,6 +45,18 @@
       <Column Name="NoiDung" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="DotThi_CTVT_DT" Member="CTVT_DTs" ThisKey="LanThi" OtherKey="LT" Type="CTVT_DT" />
       <Association Name="DotThi_CTTTDT" Member="CTTTDTs" ThisKey="LanThi" OtherKey="LT" Type="CTTTDT" />
+<<<<<<< HEAD
+=======
+    </Type>
+  </Table>
+  <Table Name="dbo.NhaTaiTro" Member="NhaTaiTros">
+    <Type Name="NhaTaiTro">
+      <Column Name="MaNTT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DiaChiNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EmailNTT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="NhaTaiTro_CTTTDT" Member="CTTTDTs" ThisKey="MaNTT" OtherKey="Ma_NTT" Type="CTTTDT" />
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
     </Type>
   </Table>
   <Table Name="dbo.CTVT_TS" Member="CTVT_Ts">
@@ -68,6 +80,7 @@
       <Column Name="DiaDiemThi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ThoiGianThi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DiaDiemTap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+<<<<<<< HEAD
       <Column Name="ThoiGianTap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Ma_GT" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="DotThi_CTVT_DT" Member="DotThi" ThisKey="LT" OtherKey="LanThi" Type="DotThi" IsForeignKey="true" />
@@ -103,6 +116,13 @@
       <Association Name="BaiHat_CTVT_T" Member="CTVT_Ts" ThisKey="MaBH" OtherKey="BaiHatBB" Type="CTVT_T" />
       <Association Name="BaiHat_CTVT_T1" Member="CTVT_Ts1" ThisKey="MaBH" OtherKey="BaiHatTC" Type="CTVT_T" />
       <Association Name="ChuDe_BaiHat" Member="ChuDe" ThisKey="Ma_CD" OtherKey="MaCD" Type="ChuDe" IsForeignKey="true" />
+=======
+      <Column Name="ThoiGianTap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TenGiaiThuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoTienThuong" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="VongThi_CTVT" Member="CTVTs" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT" />
+>>>>>>> parent of dbb84f0... QLCTTHTH_AllFunction_ver1.0
     </Type>
   </Table>
 </Database>
