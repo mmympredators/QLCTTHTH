@@ -1,0 +1,82 @@
+﻿@model PagedList.PagedList<WebQLCTTHTH.Models.ThiSinh>
+@using PagedList.Mvc;
+@using WebQLCTTHTH.Models;
+
+@{
+    ViewBag.Title = "Thí Sinh";
+    Layout = "~/Views/Shared/_LayoutTS.cshtml";
+}
+
+<h2>ThiSinh</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="width:200px">
+            Họ Tên Thí Sinh
+        </th>
+        <th>
+            Năm Sinh
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Quê quán
+        </th>
+        <th>
+            Hình đại diện
+        </th>
+        <th>
+            Nộp phí
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTenTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamSinhTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChiTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QueQuanTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HinhTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NopPhi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaTS }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaTS }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaTS })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("TS", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

@@ -1,0 +1,65 @@
+﻿@model PagedList.PagedList<WebQLCTTHTH.Models.BaiHat>
+@using PagedList.Mvc;
+@using WebQLCTTHTH.Models;
+
+@{
+    ViewBag.Title = "BaiHat";
+    Layout = "~/Views/Shared/_LayoutBGK.cshtml";
+}
+
+<h2>BaiHat</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateBH")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên bài hát
+        </th>
+        <th>
+            Nhạc
+        </th>
+        <th>
+            Lời
+        </th>
+        <th>
+            Mã chủ đề
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenBH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nhac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ma_CD)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditBH", new { id = item.MaBH }) |
+                @Html.ActionLink("Details", "DetailsBH", new { id = item.MaBH }) |
+                @Html.ActionLink("Delete", "DeleteBH", new { id = item.MaBH })
+            </td>
+        </tr>
+    }
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("BaiHat", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

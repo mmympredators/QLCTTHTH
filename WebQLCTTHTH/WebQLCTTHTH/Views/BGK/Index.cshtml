@@ -1,85 +1,8 @@
 ﻿
-@using System.Data.Entity;
-@using System.Web;
-@using System.Web.Mvc;
-@using WebQLCTTHTH.Models;
-
 @{
-    QLCTTHTHEntities1 db = new QLCTTHTHEntities1();
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutBGK.cshtml";
-    var listbaihat = db.BaiHats.ToList();
-    var listchude = db.ChuDes.ToList();
 }
-
-<h2>Bai hat </h2>
-
-<table class="table">
-    <tr>
-        <th>
-            Ten bai hat
-        </th>
-        <th>
-            Nhac 
-        </th>
-        <th>
-            Loi
-        </th>
-        <th>
-           MaCD
-        </th>
-        
-        @*<th></th>*@
-    </tr>
-
-    @foreach (var item in listbaihat)
-    {
-        <tr>
-            <td>
-                @item.TenBH
-            </td>
-            <td>
-                @item.Nhac
-            </td>
-            <td>
-                @item.Loi
-            </td>
-            <td>
-                @item.Ma_CD
-            </td>
-            
-            <td>
-                @Html.ActionLink("Edit", "Edit","BaiHats", new { id = item.MaBH }) |
-                @Html.ActionLink("Details", "Details","BaiHats", new { id = item.MaBH }) |
-                @Html.ActionLink("Delete", "Delete","BaiHats", new { id = item.MaBH })
-            </td>
-        </tr>
-    }
-</table>
-<h2>Chu de  </h2>
-<table class="table">
-    <tr>
-        <th>
-            Ten Chu de 
-        </th>
-        
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in listchude)
-    {
-        <tr>
-            <td>
-                @item.TenCD
-            </td>
-           
-
-            <td>
-                    @Html.ActionLink("Edit", "Edit","ChuDes", new { id = item.MaCD }) |
-                    @Html.ActionLink("Details", "Details", "ChuDes", new { id = item.MaCD }) |
-                    @Html.ActionLink("Delete", "Delete", "ChuDes", new { id = item.MaCD })
-                </td>
-        </tr>
-    }
-</table>
+<h2>Ban Giám Khảo</h2>
+@Html.ActionLink("Quản lý Chủ đề", "ChuDe")
+@Html.ActionLink("Quản lý Bài hát", "Baihat")
