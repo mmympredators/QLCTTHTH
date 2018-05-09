@@ -167,6 +167,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="anhthevoice\mainpic.jpg" />
+    <Content Include="anhthevoice\pic1.jpg" />
+    <Content Include="anhthevoice\pic2.jpg" />
+    <Content Include="anhthevoice\pic3.jpg" />
+    <Content Include="anhthevoice\pic4.jpg" />
+    <Content Include="anhthevoice\pic5.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -268,6 +274,8 @@
     <Content Include="Views\BDK\VTEdit.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\QLCTTHTH\TheLeThi.cshtml" />
+    <Content Include="Views\QLCTTHTH\DanhSachThiSinh.cshtml" />
+    <Content Include="Views\QLCTTHTH\ChiTietThiSinh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

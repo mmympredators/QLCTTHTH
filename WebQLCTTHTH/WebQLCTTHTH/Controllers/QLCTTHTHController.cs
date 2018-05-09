@@ -27,7 +27,17 @@ namespace WebQLCTTHTH.Controllers
         }
         public ActionResult DanhSachThiSinh()
         {
-            return View();
+            var thisinh = ThiSinh(10);
+            return View(thisinh);
+        }
+        public ActionResult ChiTietThiSinh(int id)
+        {
+            var ts = from s in db.ThiSinhs
+                     where s.MaTS == id
+                     select s;
+           
+         
+            return View(ts.Single());
         }
     }
 }
