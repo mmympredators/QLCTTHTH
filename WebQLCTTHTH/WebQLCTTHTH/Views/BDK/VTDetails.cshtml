@@ -1,0 +1,27 @@
+﻿@model WebQLCTTHTH.Models.VongThi
+
+@{
+    ViewBag.Title = "VTDetails";
+    Layout = "~/Views/Shared/_LayoutBDK.cshtml";
+}
+
+<h2>VTDetails</h2>
+
+<div>
+    <h4>VongThi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenVT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenVT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "VTEdit", new { id = Model.MaVT }) |
+    @Html.ActionLink("Back to List", "VT")
+</p>

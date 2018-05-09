@@ -1,0 +1,35 @@
+﻿@model WebQLCTTHTH.Models.DotThi
+
+@{
+    ViewBag.Title = "DTDetails";
+    Layout = "~/Views/Shared/_LayoutBDK.cshtml";
+}
+
+<h2>DTDetails</h2>
+
+<div>
+    <h4>DotThi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NamThi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamThi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "DTEdit", new { id = Model.LanThi }) |
+    @Html.ActionLink("Back to List", "DT")
+</p>

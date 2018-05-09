@@ -1,0 +1,35 @@
+﻿@model WebQLCTTHTH.Models.GiaiThuong
+
+@{
+    ViewBag.Title = "GTDetails";
+    Layout = "~/Views/Shared/_LayoutBDK.cshtml";
+}
+
+<h2>GTDetails</h2>
+
+<div>
+    <h4>GiaiThuong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenGiaiThuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGiaiThuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTienThuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTienThuong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaGT }) |
+    @Html.ActionLink("Back to List", "GT")
+</p>

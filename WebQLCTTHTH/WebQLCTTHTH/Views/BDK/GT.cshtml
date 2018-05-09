@@ -1,0 +1,51 @@
+﻿@model PagedList.PagedList<WebQLCTTHTH.Models.GiaiThuong>
+@using PagedList.Mvc;
+@using WebQLCTTHTH.Models;
+@{
+    ViewBag.Title = "GT";
+    Layout = "~/Views/Shared/_LayoutBDK.cshtml";
+}
+
+<h2>GT</h2>
+
+<p>
+    @Html.ActionLink("Create New", "GTCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên Giải thưởng
+        </th>
+        <th>
+            Số Tiền Thưởng
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenGiaiThuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoTienThuong)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "GTEdit", new { id = item.MaGT }) |
+                @Html.ActionLink("Details", "GTDetails", new { id = item.MaGT }) |
+                @Html.ActionLink("Delete", "GTDelete", new { id = item.MaGT })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("GT", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

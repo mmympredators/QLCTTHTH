@@ -184,3 +184,7 @@ C:\Users\Admin\Downloads\QLCTTHTH-ea6264d10f1a4dafb76500ebbc94db7f4245423e\WebQL
 C:\Users\Admin\Downloads\QLCTTHTH-ea6264d10f1a4dafb76500ebbc94db7f4245423e\WebQLCTTHTH\WebQLCTTHTH\bin\PagedList.xml
 C:\Users\Admin\Downloads\QLCTTHTH-ea6264d10f1a4dafb76500ebbc94db7f4245423e\WebQLCTTHTH\WebQLCTTHTH\bin\PagedList.Mvc.xml
 C:\Users\Admin\Downloads\QLCTTHTH-ea6264d10f1a4dafb76500ebbc94db7f4245423e\WebQLCTTHTH\WebQLCTTHTH\obj\Debug\WebQLCTTHTH.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\PagedList.dll
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\PagedList.Mvc.dll
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\PagedList.xml
+C:\Users\Admin\Documents\GitHub\QLCTTHTH\WebQLCTTHTH\WebQLCTTHTH\bin\PagedList.Mvc.xml

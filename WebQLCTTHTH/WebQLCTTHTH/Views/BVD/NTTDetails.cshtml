@@ -1,0 +1,43 @@
+﻿@model WebQLCTTHTH.Models.NhaTaiTro
+
+@{
+    ViewBag.Title = "NTTDetails";
+    Layout = "~/Views/Shared/_LayoutBVD.cshtml";
+}
+
+<h2>NTTDetails</h2>
+
+<div>
+    <h4>NhaTaiTro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChiNTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiNTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailNTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailNTT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "NTTEdit", new { id = Model.MaNTT }) |
+    @Html.ActionLink("Back to List", "NTT")
+</p>

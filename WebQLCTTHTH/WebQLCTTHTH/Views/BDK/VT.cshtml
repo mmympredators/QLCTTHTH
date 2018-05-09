@@ -1,0 +1,45 @@
+﻿@model PagedList.PagedList<WebQLCTTHTH.Models.VongThi>
+@using PagedList.Mvc;
+@using WebQLCTTHTH.Models;
+@{
+    ViewBag.Title = "VT";
+    Layout = "~/Views/Shared/_LayoutBDK.cshtml";
+}
+
+<h2>VT</h2>
+
+<p>
+    @Html.ActionLink("Create New", "VTCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Vòng Thi
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenVT)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "VTEdit", new { id = item.MaVT }) |
+                @Html.ActionLink("Details", "VTDetails", new { id = item.MaVT }) |
+                @Html.ActionLink("Delete", "VTDelete", new { id = item.MaVT })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("VT", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

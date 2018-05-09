@@ -237,6 +237,26 @@
     <Content Include="Views\BGK\DetailsBH.cshtml" />
     <Content Include="Views\BGK\DeleteBH.cshtml" />
     <Content Include="Views\BGK\EditBH.cshtml" />
+    <Content Include="Views\BDK\DT.cshtml" />
+    <Content Include="Views\BDK\DTDetails.cshtml" />
+    <Content Include="Views\BDK\DTCreate.cshtml" />
+    <Content Include="Views\BDK\DTDelete.cshtml" />
+    <Content Include="Views\BDK\DTEdit.cshtml" />
+    <Content Include="Views\BDK\GT.cshtml" />
+    <Content Include="Views\BDK\GTCreate.cshtml" />
+    <Content Include="Views\BDK\GTDelete.cshtml" />
+    <Content Include="Views\BDK\GTDetails.cshtml" />
+    <Content Include="Views\BDK\GTEdit.cshtml" />
+    <Content Include="Views\BVD\NTT.cshtml" />
+    <Content Include="Views\BVD\NTTCreate.cshtml" />
+    <Content Include="Views\BVD\NTTDetails.cshtml" />
+    <Content Include="Views\BVD\NTTDelete.cshtml" />
+    <Content Include="Views\BVD\NTTEdit.cshtml" />
+    <Content Include="Views\BDK\VT.cshtml" />
+    <Content Include="Views\BDK\VTCreate.cshtml" />
+    <Content Include="Views\BDK\VTDetails.cshtml" />
+    <Content Include="Views\BDK\VTDelete.cshtml" />
+    <Content Include="Views\BDK\VTEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
