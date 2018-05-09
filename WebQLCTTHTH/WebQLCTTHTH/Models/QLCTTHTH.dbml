@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLCTTHTH" Class="QLCTTHTHDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-JT7Q9VO\SQLEXPRESS;Initial Catalog=QLCTTHTH;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLCTTHTHConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=TINHNGUYEN;Initial Catalog=QLCTTHTH;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLCTTHTHConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BaiHat" Member="BaiHats">
     <Type Name="BaiHat">
       <Column Name="MaBH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -10,6 +10,14 @@
       <Association Name="BaiHat_CTVT_T" Member="CTVT_Ts" ThisKey="MaBH" OtherKey="BaiHatBB" Type="CTVT_T" />
       <Association Name="BaiHat_CTVT_T1" Member="CTVT_Ts1" ThisKey="MaBH" OtherKey="BaiHatTC" Type="CTVT_T" />
       <Association Name="ChuDe_BaiHat" Member="ChuDe" ThisKey="Ma_CD" OtherKey="MaCD" Type="ChuDe" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VongThi" Member="VongThis">
+    <Type Name="VongThi">
+      <Column Name="MaVT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenVT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="VongThi_CTVT_DT" Member="CTVT_DTs" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT_DT" />
+      <Association Name="VongThi_CTVT_T" Member="CTVT_Ts" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT_T" />
     </Type>
   </Table>
   <Table Name="dbo.ChuDe" Member="ChuDes">
@@ -39,9 +47,9 @@
       <Column Name="DiaDiemTap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ThoiGianTap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Ma_GT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="VongThi_CTVT_DT" Member="VongThi" ThisKey="Ma_VT" OtherKey="MaVT" Type="VongThi" IsForeignKey="true" />
       <Association Name="DotThi_CTVT_DT" Member="DotThi" ThisKey="LT" OtherKey="LanThi" Type="DotThi" IsForeignKey="true" />
       <Association Name="GiaiThuong_CTVT_DT" Member="GiaiThuong" ThisKey="Ma_GT" OtherKey="MaGT" Type="GiaiThuong" IsForeignKey="true" />
-      <Association Name="VongThi_CTVT_DT" Member="VongThi" ThisKey="Ma_VT" OtherKey="MaVT" Type="VongThi" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CTVT_TS" Member="CTVT_Ts">
@@ -54,8 +62,8 @@
       <Column Name="DiemBHTC" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="BaiHat_CTVT_T" Member="BaiHat" ThisKey="BaiHatBB" OtherKey="MaBH" Type="BaiHat" IsForeignKey="true" />
       <Association Name="BaiHat_CTVT_T1" Member="BaiHat1" ThisKey="BaiHatTC" OtherKey="MaBH" Type="BaiHat" IsForeignKey="true" />
-      <Association Name="ThiSinh_CTVT_T" Member="ThiSinh" ThisKey="SBD" OtherKey="MaTS" Type="ThiSinh" IsForeignKey="true" />
       <Association Name="VongThi_CTVT_T" Member="VongThi" ThisKey="Ma_VT" OtherKey="MaVT" Type="VongThi" IsForeignKey="true" />
+      <Association Name="ThiSinh_CTVT_T" Member="ThiSinh" ThisKey="SBD" OtherKey="MaTS" Type="ThiSinh" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DotThi" Member="DotThis">
@@ -95,14 +103,6 @@
       <Column Name="HinhTS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="NopPhi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="ThiSinh_CTVT_T" Member="CTVT_Ts" ThisKey="MaTS" OtherKey="SBD" Type="CTVT_T" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VongThi" Member="VongThis">
-    <Type Name="VongThi">
-      <Column Name="MaVT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenVT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="VongThi_CTVT_DT" Member="CTVT_DTs" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT_DT" />
-      <Association Name="VongThi_CTVT_T" Member="CTVT_Ts" ThisKey="MaVT" OtherKey="Ma_VT" Type="CTVT_T" />
     </Type>
   </Table>
 </Database>

@@ -33,6 +33,9 @@ namespace WebQLCTTHTH.Models
     partial void InsertBaiHat(BaiHat instance);
     partial void UpdateBaiHat(BaiHat instance);
     partial void DeleteBaiHat(BaiHat instance);
+    partial void InsertVongThi(VongThi instance);
+    partial void UpdateVongThi(VongThi instance);
+    partial void DeleteVongThi(VongThi instance);
     partial void InsertChuDe(ChuDe instance);
     partial void UpdateChuDe(ChuDe instance);
     partial void DeleteChuDe(ChuDe instance);
@@ -57,13 +60,10 @@ namespace WebQLCTTHTH.Models
     partial void InsertThiSinh(ThiSinh instance);
     partial void UpdateThiSinh(ThiSinh instance);
     partial void DeleteThiSinh(ThiSinh instance);
-    partial void InsertVongThi(VongThi instance);
-    partial void UpdateVongThi(VongThi instance);
-    partial void DeleteVongThi(VongThi instance);
     #endregion
 		
 		public QLCTTHTHDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLCTTHTHConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLCTTHTHConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -97,6 +97,14 @@ namespace WebQLCTTHTH.Models
 			get
 			{
 				return this.GetTable<BaiHat>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VongThi> VongThis
+		{
+			get
+			{
+				return this.GetTable<VongThi>();
 			}
 		}
 		
@@ -161,14 +169,6 @@ namespace WebQLCTTHTH.Models
 			get
 			{
 				return this.GetTable<ThiSinh>();
-			}
-		}
-		
-		public System.Data.Linq.Table<VongThi> VongThis
-		{
-			get
-			{
-				return this.GetTable<VongThi>();
 			}
 		}
 	}
@@ -425,6 +425,148 @@ namespace WebQLCTTHTH.Models
 		{
 			this.SendPropertyChanging();
 			entity.BaiHat1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VongThi")]
+	public partial class VongThi : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaVT;
+		
+		private string _TenVT;
+		
+		private EntitySet<CTVT_DT> _CTVT_DTs;
+		
+		private EntitySet<CTVT_T> _CTVT_Ts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaVTChanging(int value);
+    partial void OnMaVTChanged();
+    partial void OnTenVTChanging(string value);
+    partial void OnTenVTChanged();
+    #endregion
+		
+		public VongThi()
+		{
+			this._CTVT_DTs = new EntitySet<CTVT_DT>(new Action<CTVT_DT>(this.attach_CTVT_DTs), new Action<CTVT_DT>(this.detach_CTVT_DTs));
+			this._CTVT_Ts = new EntitySet<CTVT_T>(new Action<CTVT_T>(this.attach_CTVT_Ts), new Action<CTVT_T>(this.detach_CTVT_Ts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaVT", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaVT
+		{
+			get
+			{
+				return this._MaVT;
+			}
+			set
+			{
+				if ((this._MaVT != value))
+				{
+					this.OnMaVTChanging(value);
+					this.SendPropertyChanging();
+					this._MaVT = value;
+					this.SendPropertyChanged("MaVT");
+					this.OnMaVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenVT", DbType="NVarChar(50)")]
+		public string TenVT
+		{
+			get
+			{
+				return this._TenVT;
+			}
+			set
+			{
+				if ((this._TenVT != value))
+				{
+					this.OnTenVTChanging(value);
+					this.SendPropertyChanging();
+					this._TenVT = value;
+					this.SendPropertyChanged("TenVT");
+					this.OnTenVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VongThi_CTVT_DT", Storage="_CTVT_DTs", ThisKey="MaVT", OtherKey="Ma_VT")]
+		public EntitySet<CTVT_DT> CTVT_DTs
+		{
+			get
+			{
+				return this._CTVT_DTs;
+			}
+			set
+			{
+				this._CTVT_DTs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VongThi_CTVT_T", Storage="_CTVT_Ts", ThisKey="MaVT", OtherKey="Ma_VT")]
+		public EntitySet<CTVT_T> CTVT_Ts
+		{
+			get
+			{
+				return this._CTVT_Ts;
+			}
+			set
+			{
+				this._CTVT_Ts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CTVT_DTs(CTVT_DT entity)
+		{
+			this.SendPropertyChanging();
+			entity.VongThi = this;
+		}
+		
+		private void detach_CTVT_DTs(CTVT_DT entity)
+		{
+			this.SendPropertyChanging();
+			entity.VongThi = null;
+		}
+		
+		private void attach_CTVT_Ts(CTVT_T entity)
+		{
+			this.SendPropertyChanging();
+			entity.VongThi = this;
+		}
+		
+		private void detach_CTVT_Ts(CTVT_T entity)
+		{
+			this.SendPropertyChanging();
+			entity.VongThi = null;
 		}
 	}
 	
@@ -802,11 +944,11 @@ namespace WebQLCTTHTH.Models
 		
 		private System.Nullable<int> _Ma_GT;
 		
+		private EntityRef<VongThi> _VongThi;
+		
 		private EntityRef<DotThi> _DotThi;
 		
 		private EntityRef<GiaiThuong> _GiaiThuong;
-		
-		private EntityRef<VongThi> _VongThi;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -830,9 +972,9 @@ namespace WebQLCTTHTH.Models
 		
 		public CTVT_DT()
 		{
+			this._VongThi = default(EntityRef<VongThi>);
 			this._DotThi = default(EntityRef<DotThi>);
 			this._GiaiThuong = default(EntityRef<GiaiThuong>);
-			this._VongThi = default(EntityRef<VongThi>);
 			OnCreated();
 		}
 		
@@ -988,6 +1130,40 @@ namespace WebQLCTTHTH.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VongThi_CTVT_DT", Storage="_VongThi", ThisKey="Ma_VT", OtherKey="MaVT", IsForeignKey=true)]
+		public VongThi VongThi
+		{
+			get
+			{
+				return this._VongThi.Entity;
+			}
+			set
+			{
+				VongThi previousValue = this._VongThi.Entity;
+				if (((previousValue != value) 
+							|| (this._VongThi.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._VongThi.Entity = null;
+						previousValue.CTVT_DTs.Remove(this);
+					}
+					this._VongThi.Entity = value;
+					if ((value != null))
+					{
+						value.CTVT_DTs.Add(this);
+						this._Ma_VT = value.MaVT;
+					}
+					else
+					{
+						this._Ma_VT = default(int);
+					}
+					this.SendPropertyChanged("VongThi");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DotThi_CTVT_DT", Storage="_DotThi", ThisKey="LT", OtherKey="LanThi", IsForeignKey=true)]
 		public DotThi DotThi
 		{
@@ -1056,40 +1232,6 @@ namespace WebQLCTTHTH.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VongThi_CTVT_DT", Storage="_VongThi", ThisKey="Ma_VT", OtherKey="MaVT", IsForeignKey=true)]
-		public VongThi VongThi
-		{
-			get
-			{
-				return this._VongThi.Entity;
-			}
-			set
-			{
-				VongThi previousValue = this._VongThi.Entity;
-				if (((previousValue != value) 
-							|| (this._VongThi.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._VongThi.Entity = null;
-						previousValue.CTVT_DTs.Remove(this);
-					}
-					this._VongThi.Entity = value;
-					if ((value != null))
-					{
-						value.CTVT_DTs.Add(this);
-						this._Ma_VT = value.MaVT;
-					}
-					else
-					{
-						this._Ma_VT = default(int);
-					}
-					this.SendPropertyChanged("VongThi");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1133,9 +1275,9 @@ namespace WebQLCTTHTH.Models
 		
 		private EntityRef<BaiHat> _BaiHat1;
 		
-		private EntityRef<ThiSinh> _ThiSinh;
-		
 		private EntityRef<VongThi> _VongThi;
+		
+		private EntityRef<ThiSinh> _ThiSinh;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1159,8 +1301,8 @@ namespace WebQLCTTHTH.Models
 		{
 			this._BaiHat = default(EntityRef<BaiHat>);
 			this._BaiHat1 = default(EntityRef<BaiHat>);
-			this._ThiSinh = default(EntityRef<ThiSinh>);
 			this._VongThi = default(EntityRef<VongThi>);
+			this._ThiSinh = default(EntityRef<ThiSinh>);
 			OnCreated();
 		}
 		
@@ -1368,40 +1510,6 @@ namespace WebQLCTTHTH.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThiSinh_CTVT_T", Storage="_ThiSinh", ThisKey="SBD", OtherKey="MaTS", IsForeignKey=true)]
-		public ThiSinh ThiSinh
-		{
-			get
-			{
-				return this._ThiSinh.Entity;
-			}
-			set
-			{
-				ThiSinh previousValue = this._ThiSinh.Entity;
-				if (((previousValue != value) 
-							|| (this._ThiSinh.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ThiSinh.Entity = null;
-						previousValue.CTVT_Ts.Remove(this);
-					}
-					this._ThiSinh.Entity = value;
-					if ((value != null))
-					{
-						value.CTVT_Ts.Add(this);
-						this._SBD = value.MaTS;
-					}
-					else
-					{
-						this._SBD = default(int);
-					}
-					this.SendPropertyChanged("ThiSinh");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VongThi_CTVT_T", Storage="_VongThi", ThisKey="Ma_VT", OtherKey="MaVT", IsForeignKey=true)]
 		public VongThi VongThi
 		{
@@ -1432,6 +1540,40 @@ namespace WebQLCTTHTH.Models
 						this._Ma_VT = default(int);
 					}
 					this.SendPropertyChanged("VongThi");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThiSinh_CTVT_T", Storage="_ThiSinh", ThisKey="SBD", OtherKey="MaTS", IsForeignKey=true)]
+		public ThiSinh ThiSinh
+		{
+			get
+			{
+				return this._ThiSinh.Entity;
+			}
+			set
+			{
+				ThiSinh previousValue = this._ThiSinh.Entity;
+				if (((previousValue != value) 
+							|| (this._ThiSinh.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ThiSinh.Entity = null;
+						previousValue.CTVT_Ts.Remove(this);
+					}
+					this._ThiSinh.Entity = value;
+					if ((value != null))
+					{
+						value.CTVT_Ts.Add(this);
+						this._SBD = value.MaTS;
+					}
+					else
+					{
+						this._SBD = default(int);
+					}
+					this.SendPropertyChanged("ThiSinh");
 				}
 			}
 		}
@@ -2178,148 +2320,6 @@ namespace WebQLCTTHTH.Models
 		{
 			this.SendPropertyChanging();
 			entity.ThiSinh = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VongThi")]
-	public partial class VongThi : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaVT;
-		
-		private string _TenVT;
-		
-		private EntitySet<CTVT_DT> _CTVT_DTs;
-		
-		private EntitySet<CTVT_T> _CTVT_Ts;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaVTChanging(int value);
-    partial void OnMaVTChanged();
-    partial void OnTenVTChanging(string value);
-    partial void OnTenVTChanged();
-    #endregion
-		
-		public VongThi()
-		{
-			this._CTVT_DTs = new EntitySet<CTVT_DT>(new Action<CTVT_DT>(this.attach_CTVT_DTs), new Action<CTVT_DT>(this.detach_CTVT_DTs));
-			this._CTVT_Ts = new EntitySet<CTVT_T>(new Action<CTVT_T>(this.attach_CTVT_Ts), new Action<CTVT_T>(this.detach_CTVT_Ts));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaVT", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaVT
-		{
-			get
-			{
-				return this._MaVT;
-			}
-			set
-			{
-				if ((this._MaVT != value))
-				{
-					this.OnMaVTChanging(value);
-					this.SendPropertyChanging();
-					this._MaVT = value;
-					this.SendPropertyChanged("MaVT");
-					this.OnMaVTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenVT", DbType="NVarChar(50)")]
-		public string TenVT
-		{
-			get
-			{
-				return this._TenVT;
-			}
-			set
-			{
-				if ((this._TenVT != value))
-				{
-					this.OnTenVTChanging(value);
-					this.SendPropertyChanging();
-					this._TenVT = value;
-					this.SendPropertyChanged("TenVT");
-					this.OnTenVTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VongThi_CTVT_DT", Storage="_CTVT_DTs", ThisKey="MaVT", OtherKey="Ma_VT")]
-		public EntitySet<CTVT_DT> CTVT_DTs
-		{
-			get
-			{
-				return this._CTVT_DTs;
-			}
-			set
-			{
-				this._CTVT_DTs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VongThi_CTVT_T", Storage="_CTVT_Ts", ThisKey="MaVT", OtherKey="Ma_VT")]
-		public EntitySet<CTVT_T> CTVT_Ts
-		{
-			get
-			{
-				return this._CTVT_Ts;
-			}
-			set
-			{
-				this._CTVT_Ts.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CTVT_DTs(CTVT_DT entity)
-		{
-			this.SendPropertyChanging();
-			entity.VongThi = this;
-		}
-		
-		private void detach_CTVT_DTs(CTVT_DT entity)
-		{
-			this.SendPropertyChanging();
-			entity.VongThi = null;
-		}
-		
-		private void attach_CTVT_Ts(CTVT_T entity)
-		{
-			this.SendPropertyChanging();
-			entity.VongThi = this;
-		}
-		
-		private void detach_CTVT_Ts(CTVT_T entity)
-		{
-			this.SendPropertyChanging();
-			entity.VongThi = null;
 		}
 	}
 }

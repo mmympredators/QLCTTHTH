@@ -170,10 +170,19 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\pic5.jpg" />
+    <Content Include="Content\pic6.jpg" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\pic1.jpg" />
+    <Content Include="Images\singer1.jpg" />
+    <Content Include="Images\singer2.jpg" />
+    <Content Include="Images\singer3.jpg" />
+    <Content Include="Images\singer4.jpg" />
+    <Content Include="Images\singer5.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -257,10 +266,11 @@
     <Content Include="Views\BDK\VTDetails.cshtml" />
     <Content Include="Views\BDK\VTDelete.cshtml" />
     <Content Include="Views\BDK\VTEdit.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\QLCTTHTH\TheLeThi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
